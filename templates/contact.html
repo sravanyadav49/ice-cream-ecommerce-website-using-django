@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block title %}Contact{% endblock title %}
+
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  {{ message }}
+
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<div class="cont">
+  <form method="post" action="{% url 'contact' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" required>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" name="feedback" rows="3" required></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<style>
+  body{
+    background-image: url('{% static "images/feed.jpg" %}');
+  }
+
+  .cont{
+    background-image: url('{% static "images/bg-feed.jpg" %}');
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+  }
+  button{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: darkgray;
+  }
+</style>
+{% endblock body %}
+

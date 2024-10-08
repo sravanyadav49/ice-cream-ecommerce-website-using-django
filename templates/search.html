@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+{% block title %}Search{% endblock title %}Home
+
+{% block body %}
+<div class="container">
+    <div class="row my-4">
+      {% for order in orders %}
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ order.img.url }}" class="card-img-top" alt="{{ order.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ order.name }}</h5>
+            <p class="card-text">Price: {{ order.price }}</p>
+            <a href="cart" class="btn btn-primary">Order Now</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <style>
+      .card {
+          margin-bottom: 20px; /* Space between cards */
+      }
+    
+      .card-img-top {
+          height: 225px; /* Fixed height for images */
+          object-fit: cover; /* Cover the area without distortion */
+      }
+    </style>
+
+{% endblock body %}

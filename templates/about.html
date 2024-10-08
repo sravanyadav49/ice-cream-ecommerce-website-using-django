@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About{% endblock title %}
+
+{% block body %}
+    <style>
+        body {
+            background-image: url("{% static 'images/outer_about.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .about-section {
+            background-image: url("{% static 'images/about_inner.jpg' %}");
+            background-size: cover; /* Ensures the image covers the entire section */
+            background-position: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #0b0b0b;
+            line-height: 1.6;
+        }
+    </style>
+
+    <div class="about-section">
+        <h1>About Us</h1>
+        <p>Our journey began with a simple passion for creating the most delicious and fresh ice cream. Since 1996, we’ve been dedicated to crafting unique flavors and delivering smiles in every scoop.</p>
+        <p>Our mission is to create the finest ice creams, using only the freshest ingredients, and to provide an unforgettable experience to each and every customer.</p>
+    </div>
+{% endblock body %}
